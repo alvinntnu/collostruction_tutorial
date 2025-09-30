@@ -1,0 +1,5 @@
+install.packages("tidyverse")
+install.packages("tidytext")
+install.packages("quanteda")
+install.packages("jiebaR")
+install.packages("rmarkdown")
