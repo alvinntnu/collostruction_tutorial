@@ -1,1 +1,1 @@
-install.packages(c("dplyr", "ggplot2", "rmarkdown"))
+install.packages(c("tidyverse", "tidytext", "quanteda", "rmarkdown","jiebaR"))
