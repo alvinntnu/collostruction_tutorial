@@ -1,0 +1,61 @@
+/* Base style for all special blocks */
+.alert, .info, .try, .exercise {
+  border-radius: 8px;
+  padding: 1em 1.2em 1em 2.5em; /* left padding for icon space */
+  margin: 1.2em 0;
+  font-size: 0.95em;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  position: relative;
+}
+
+/* Icon placement */
+.alert::before,
+.info::before,
+.try::before,
+.exercise::before {
+  position: absolute;
+  left: 0.8em;
+  top: 1em;
+  font-size: 1.2em;
+}
+
+/* Alert (red, warning) */
+.alert {
+  background-color: #f8d7da;
+  border-left: 6px solid #d9534f;
+  color: #842029;
+}
+.alert::before {
+  content: "⚠️";
+}
+
+/* Info (blue, note) */
+.info {
+  background-color: #e7f3fe;
+  border-left: 6px solid #2196f3;
+  color: #0c5460;
+}
+.info::before {
+  content: "ℹ️";
+}
+
+/* Try (green, tips/hints) */
+.try {
+  background-color: #e9fbe7;
+  border-left: 6px solid #28a745;
+  color: #155724;
+}
+.try::before {
+  content: "✅";
+}
+
+/* Exercise (yellow, tasks) */
+.exercise {
+  background-color: #fff9e6;
+  border-left: 6px solid #ffc107;
+  color: #856404;
+  font-weight: 500;
+}
+.exercise::before {
+  content: "📝";
+}
