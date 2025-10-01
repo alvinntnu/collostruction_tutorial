@@ -331,7 +331,7 @@ knitr::include_graphics("images/coll-analysis-result.png")
 
 ## Interpretations
 
-The output from `coll.analysis.r` is a text file with both the **result data frame** (i.e., the data frame with all the statistics) as well as detailed annotations/explanations provided by Stefan Gries.
+The output from `coll.analysis.r` is a tab-delimited csv file (i.e., the data frame with all the statistics).
 
 We can extract the result data frame from the text file. A sample output file from the collexeme analysis of QILAI has been made available in `demo_data/qilai_results.txt`.
 

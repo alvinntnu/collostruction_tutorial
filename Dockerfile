@@ -1,4 +1,10 @@
-FROM rocker/binder:4.3.1
+FROM rocker/binder:4.3.0
 
-COPY install.R /tmp/install.R
-RUN Rscript /tmp/install.R
+# Copy the entire repo
+COPY . /home/rstudio/
+
+# Run package installation
+RUN Rscript /home/rstudio/install.R
+
+# Set working directory
+WORKDIR /home/rstudio
