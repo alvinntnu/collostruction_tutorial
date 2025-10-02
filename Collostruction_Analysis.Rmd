@@ -53,7 +53,7 @@ In particular, words that are strongly associated (i.e., co-occurring) with the 
 -   **co-varying collexeme** analysis (cf. @stefanowitsch2005)
 -   **distinctive collexeme** analysis (cf. @gries2004)
 
-This tutorial will focus on the first one, collexeme analysis, whose principles can be extended to the other analyses.
+This tutorial will first focus on **collexeme analysis**, whose principles can be extended to the other analyses.
 
 Also, I will demonstrate how we can conduct a collexeme analysis by using the R script written by Stefan Gries ([Collostructional Analysis](http://www.stgries.info/teaching/groningen/index.html)).
 
@@ -68,6 +68,22 @@ That is, we are interested in the collexemes of the construction `X + 起來` an
 So our first step is to load the text collections of Apple News into R and create a `corpus` object.
 
 ```{r purl=T}
+## Load Data
+apple_df <-
+  readtext("demo_data/applenews10000.tar.gz", encoding = "UTF-8") %>% ## loading data
+  filter(!str_detect(text, "^\\s*$")) %>% ## removing empty docs
+  mutate(doc_id = row_number()) ## create index
+```
+
+::: try
+Raw texts usually include a lot of noise. For example, texts may include invisible **control characters**, **redundant white-spaces**, and **duplicate line breaks**. These redundant characters may have an impact on the word segmentation performance. It is often suggested to clean up the raw texts before tokenization.
+
+In the above example, I created a simple function, `normalize_text()`. You can always create a more sophisticated one that is designed for your own corpus data.
+:::
+
+- Define how we would like to preprocess the data
+
+```{r}
 ## Text normalization function
 ## Define a function
 normalize_document <- function(texts) {
@@ -75,13 +91,9 @@ normalize_document <- function(texts) {
     str_replace_all("\\p{C}", " ") %>%  ## remove control chars
     str_replace_all("\\s+", "\n")  ## replace whitespaces with linebreak
 }
-
-## Load Data
-apple_df <-
-  readtext("demo_data/applenews10000.tar.gz", encoding = "UTF-8") %>% ## loading data
-  filter(!str_detect(text, "^\\s*$")) %>% ## removing empty docs
-  mutate(doc_id = row_number()) ## create index
 ```
+
+- Example
 
 ```{r}
 ## Example usage of `normalize_document()`
@@ -91,16 +103,13 @@ apple_df$text[1]
 normalize_document(apple_df$text[1])
 ```
 
+- Preprocess all texts in the corpus
+
 ```{r}
 ## Apply cleaning to all docs
 apple_df$text <- normalize_document(apple_df$text)
 ```
 
-::: try
-Raw texts usually include a lot of noise. For example, texts may include invisible **control characters**, **redundant white-spaces**, and **duplicate line breaks**. These redundant characters may have an impact on the word segmentation performance. It is often suggested to clean up the raw texts before tokenization.
-
-In the above example, I created a simple function, `normalize_text()`. You can always create a more sophisticated one that is designed for your own corpus data.
-:::
 
 ## Word Segmentation
 
