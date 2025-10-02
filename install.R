@@ -1,3 +1,4 @@
+install.packages("showtext")
 install.packages("tidyverse")
 install.packages("tidytext")
 install.packages("quanteda")

@@ -20,7 +20,6 @@ knitr::opts_chunk$set(message = F, warning = F)
 knitr::opts_chunk$set(fig.width=8, fig.height=6, dpi=300, fig.retina=2)
 
 library(showtext)
-font_add("Arial Unicode MS", "Arial Unicode.ttf")
 ## Automatically use showtext to render plots
 ## If loading showtext throws errors, install: https://www.xquartz.org/
 showtext_auto(enable = TRUE)
