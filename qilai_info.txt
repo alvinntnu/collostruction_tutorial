@@ -1,2 +1,2 @@
-Corpus Size:  3209784 
-Construction Size:  546 
+Corpus Size:  2615074 
+Construction Size:  545 
