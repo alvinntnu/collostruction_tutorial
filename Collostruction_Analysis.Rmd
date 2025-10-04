@@ -2,15 +2,15 @@
 title: "A Practical Introduction to Collostructional Analysis in R"
 author: "Alvin Cheng-Hsien Chen"
 date: "October 7, 2025 @ NCCU </br> 👉 <a href='https://mybinder.org/v2/gh/alvinntnu/collostruction_tutorial/main?urlpath=rstudio' target='_blank' style='font-weight:bold;'>Launch Tutorial in Binder</a>" 
-subtitle: ""
 output:
   prettydoc::html_pretty:
     theme: leonids
-    highlight: github    
+    highlight: github
     toc: true
     number_sections: true
     df_print: paged
     css: "static/style.css"
+output_dir: "docs"
 bibliography: "static/book.bib"
 csl: "static/apa-6th-edition.csl"
 ---
@@ -24,6 +24,8 @@ knitr::opts_chunk$set(fig.width=8, fig.height=6, dpi=300, fig.retina=2, cols.pri
 ## If loading showtext throws errors, install: https://www.xquartz.org/
 library(showtext)
 showtext_auto(enable = TRUE)
+
+#rmarkdown::render("collostruction_analysis.Rmd", html_pretty(), output_dir = "docs")
 ```
 
 <p align="center">
