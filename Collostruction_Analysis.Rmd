@@ -25,7 +25,7 @@ knitr::opts_chunk$set(fig.width=8, fig.height=6, dpi=300, fig.retina=2, cols.pri
 library(showtext)
 showtext_auto(enable = TRUE)
 
-#rmarkdown::render("collostruction_analysis.Rmd", html_pretty(), output_dir = "docs")
+#rmarkdown::render("collostruction_analysis.Rmd", html_pretty(theme="leonids", highlight="github", toc=T, number_sections=T, df_print="paged",css="static/style.css"), output_dir = "docs")
 ```
 
 <p align="center">
