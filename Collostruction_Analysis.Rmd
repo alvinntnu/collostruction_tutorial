@@ -1,7 +1,8 @@
 ---
 title: "A Practical Introduction to Collostructional Analysis in R"
 author: "Alvin Cheng-Hsien Chen"
-date: "October 7, 2025"
+date: "October 7, 2025 @ NCCU </br> 👉 <a href='https://mybinder.org/v2/gh/alvinntnu/collostruction_tutorial/main?urlpath=rstudio' target='_blank' style='font-weight:bold;'>Launch Tutorial in Binder</a>" 
+subtitle: ""
 output:
   prettydoc::html_pretty:
     theme: leonids
@@ -24,6 +25,12 @@ knitr::opts_chunk$set(fig.width=8, fig.height=6, dpi=300, fig.retina=2, cols.pri
 library(showtext)
 showtext_auto(enable = TRUE)
 ```
+
+<p align="center">
+  👉 <a href="https://mybinder.org/v2/gh/alvinntnu/collostruction_tutorial/main?urlpath=rstudio" target="_blank" style="font-weight:bold;">
+  Launch Tutorial in Binder
+  </a>
+</p>
 
 
 ## Loading packages
@@ -560,6 +567,24 @@ An example output file is included in this project.
 ### Distinctive Collexeme Analysis: Results Exploration
 dist_results <- read_tsv("2025-10-02 04-10-56.334203.csv")
 
+dist_results
+```
+
+::: info
+
+In *distinctive collexeme analysis*, the two columns mean:
+
+**`SUMABSDEV`** shows how unevenly a word appears across the constructions. The larger this number, the more the word favors one construction over the others.
+
+**`LARGESTPREF`** tells you *which* construction the word favors most — the one where it appears more often than expected.
+
+So, if a collocate has a high `SUMABSDEV` and `LARGESTPREF = A`, it means the word occurs much more often in Construction A than chance would predict.
+
+:::
+
+And our next step is to explore the semantic patterns from the output:
+
+```{r}
 dist_results %>%
   group_by(LARGESTPREF) %>%
   top_n(10, SUMABSDEV) %>%
